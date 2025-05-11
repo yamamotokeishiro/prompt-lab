@@ -1,0 +1,631 @@
+/* AIチャットスタイル - ChatGPTとChaproの参考デザイン */
+:root {
+  --primary-color: #10a37f;
+  --primary-light: #e6f7f3;
+  --secondary-color: #6e56cf;
+  --dark-text: #202123;
+  --light-text: #6e6e80;
+  --border-color: #e5e5e5;
+  --sidebar-bg: #f7f7f8;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --hover-color: #f1f5f9;
+  --active-bg: #ececf1;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color-hover: rgba(0, 0, 0, 0.1);
+}
+
+/* 基本レイアウト */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--dark-text);
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+.ai-chat-layout {
+  display: flex;
+  min-height: calc(100vh - 60px); /* ヘッダーの高さを考慮 */
+}
+
+/* サイドバーのスタイル */
+.sidebar-menu {
+  width: 260px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  padding: 0;
+  position: sticky;
+  top: 60px; /* ヘッダーの高さと同じ */
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.sidebar-header {
+  padding: 25px 16px 16px; /* 上のパディングを増やして下げる */
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sidebar-search {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: var(--input-bg);
+}
+
+.sidebar-categories ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-category {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-category a {
+  display: block;
+  padding: 12px 16px;
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-size: 0.95rem;
+}
+
+.sidebar-category a:hover {
+  background-color: var(--hover-color);
+}
+
+.category-count {
+  float: right;
+  color: var(--light-text);
+  font-size: 0.85rem;
+}
+
+.no-categories {
+  padding: 12px 16px;
+  color: var(--light-text);
+  font-style: italic;
+  margin: 0;
+}
+
+/* メインコンテンツエリア */
+.main-content {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+}
+
+/* ヒーローセクション（全画面検索） */
+.hero-section {
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--dark-text);
+}
+
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px var(--shadow-color-hover);
+}
+
+.search-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.search-button,
+.deep-research-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-button {
+  margin-right: 8px;
+}
+
+.search-button:hover,
+.deep-research-button:hover {
+  background-color: var(--hover-color);
+}
+
+/* プラスとマイクのボタンを削除したのでここのスタイルも必要ない
+.hero-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.add-button, .voice-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-button:hover, .voice-button:hover {
+  background-color: var(--hover-color);
+}
+*/
+
+/* セクション共通スタイル */
+.recent-prompts-section,
+.popular-prompts-section {
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.view-all-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+/* プロンプトカードのスタイル */
+.prompt-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.prompt-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prompt-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--shadow-color-hover);
+}
+
+.prompt-card-image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.prompt-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.prompt-card:hover .prompt-card-image img {
+  transform: scale(1.05);
+}
+
+.prompt-card-content {
+  padding: 1rem;
+}
+
+.prompt-card-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.prompt-category {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.prompt-date,
+.prompt-views {
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prompt-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.prompt-card-title a {
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.prompt-card-title a:hover {
+  color: var(--primary-color);
+}
+
+.prompt-card-excerpt {
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.prompt-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author-info img {
+  border-radius: 50%;
+}
+
+.author-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.prompt-actions {
+  display: flex;
+  align-items: center;
+}
+
+.read-more-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+}
+
+/* プロンプトがない場合の表示 */
+.no-prompts {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--light-text);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+  .ai-chat-layout {
+    flex-direction: column;
+  }
+
+  .sidebar-menu {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hero-section {
+    height: auto;
+    min-height: 70vh;
+    padding: 2rem 1rem;
+  }
+
+  .prompt-cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .search-buttons {
+    flex-direction: column;
+  }
+
+  .search-button {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .prompt-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .recent-prompts-section,
+  .popular-prompts-section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* 職種カテゴリーセクション */
+.profession-categories-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9fb;
+}
+
+.profession-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.profession-category-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profession-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profession-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.profession-category-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--dark-text);
+}
+
+.profession-category-card p {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.profession-course-count {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.profession-link {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.profession-link:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.no-professions {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--light-text);
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+  .profession-categories-section {
+    padding: 3rem 1rem;
+  }
+
+  .profession-categories {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profession-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 固定ページのスタイル */
+.page-content-wrapper {
+  padding: 60px 0;
+  min-height: calc(100vh - 140px); /* ヘッダーとフッターの高さを考慮 */
+}
+
+.page-main-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 20px;
+}
+
+.page-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--dark-text);
+}
+
+.page-content p {
+  margin-bottom: 1.5rem;
+}
+
+.page-content h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: var(--dark-text);
+}
+
+.page-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.8rem 0 1rem;
+  color: var(--dark-text);
+}
+
+.page-content ul,
+.page-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.page-content li {
+  margin-bottom: 0.5rem;
+}
+
+.page-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-content a:hover {
+  text-decoration: underline;
+}
+
+.page-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .page-content-wrapper {
+    padding: 40px 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-content {
+    font-size: 1rem;
+  }
+}

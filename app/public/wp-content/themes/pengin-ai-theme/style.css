@@ -1,0 +1,12 @@
+/*
+Theme Name: PENGIN AI Theme
+Template: twentytwentythree
+Description: PENGIN AI用のWordPress子テーマ
+Author: あなたの名前
+Version: 1.0
+*/
+
+/* 親テーマのスタイルを読み込み */
+@import url("../twentytwentythree/style.css");
+
+/* カスタムスタイル */
