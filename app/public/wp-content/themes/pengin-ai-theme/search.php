@@ -32,6 +32,10 @@ $search_query = get_search_query();
                     </button>
                 </div>
             </form>
+            <div class="search-tips">
+                    <!-- 検索ヒントを表示 -->
+                    <p>例: 「営業資料の作成方法」「プレゼン資料のプロンプト」など</p>
+                </div>
         </div>
 
         <?php

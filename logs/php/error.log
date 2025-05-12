@@ -515,3 +515,297 @@ Stack trace:
 #2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
 #3 {main}
   thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:22:27 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:22:43 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:22:59 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:23:01 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:23:03 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:23:05 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:23:06 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:23:09 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:29 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:35 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:38 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:42 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:43 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:45 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:49 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:25:53 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:27:23 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:34:10 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:34:11 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:34:11 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:34:12 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:34:12 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:35:25 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:262
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 262
+[12-May-2025 19:35:27 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:262
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 262
+[12-May-2025 19:35:49 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 19:36:02 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:36:21 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:36:34 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:37:51 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:37:53 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:38:13 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:39:26 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:39:32 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:42:57 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:270
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 270
+[12-May-2025 19:43:47 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:272
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 272
+[12-May-2025 19:44:12 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:272
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 272
+[12-May-2025 19:44:18 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:272
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 272
+[12-May-2025 19:44:52 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:268
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 268
+[12-May-2025 19:45:09 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:268
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 268
+[12-May-2025 19:45:13 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:268
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 268
+[12-May-2025 19:45:20 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:268
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 268
+[12-May-2025 19:45:30 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:266
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 266
