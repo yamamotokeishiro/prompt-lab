@@ -494,58 +494,24 @@ function save_recommended_ai_tools_meta_data($post_id) {
   }
 }
 
-// 監修者選択用のカスタムフィールドを追加
+// 研究員選択用のカスタムフィールドを追加
 function add_prompt_author_field() {
   if (function_exists('acf_add_local_field_group')) {
       acf_add_local_field_group(array(
           'key' => 'group_prompt_author',
-          'title' => 'プロンプト監修情報',
+          'title' => 'プロンプト研究員情報',
           'fields' => array(
               array(
                   'key' => 'field_prompt_author',
-                  'label' => '監修者',
+                  'label' => '研究員',
                   'name' => 'prompt_author',
                   'type' => 'user',
-                  'instructions' => 'このプロンプトの作成者または監修者を選択してください',
+                  'instructions' => 'このプロンプトの作成者または研究員を選択してください',
                   'required' => 0,
                   'role' => '',
                   'allow_null' => 1,
                   'multiple' => 0,
                   'return_format' => 'array',
-              ),
-              array(
-                  'key' => 'field_prompt_author_title',
-                  'label' => '監修者肩書き',
-                  'name' => 'prompt_author_title',
-                  'type' => 'text',
-                  'instructions' => '監修者の肩書きや役職など（例：AIエンジニア、プロンプトエンジニアなど）',
-                  'required' => 0,
-                  'conditional_logic' => array(
-                      array(
-                          array(
-                              'field' => 'field_prompt_author',
-                              'operator' => '!=empty',
-                          ),
-                      ),
-                  ),
-              ),
-              array(
-                  'key' => 'field_prompt_author_description',
-                  'label' => '監修者プロフィール',
-                  'name' => 'prompt_author_description',
-                  'type' => 'textarea',
-                  'instructions' => '監修者の簡単なプロフィールや経歴（100文字程度）',
-                  'required' => 0,
-                  'rows' => 3,
-                  'new_lines' => 'br',
-                  'conditional_logic' => array(
-                      array(
-                          array(
-                              'field' => 'field_prompt_author',
-                              'operator' => '!=empty',
-                          ),
-                      ),
-                  ),
               ),
           ),
           'location' => array(
@@ -579,7 +545,7 @@ add_action('acf/init', 'add_prompt_author_field');
 function add_prompt_author_meta_box() {
   add_meta_box(
       'prompt_author_meta_box',
-      'プロンプト監修情報',
+      'プロンプト研究員情報',
       'render_prompt_author_meta_box',
       'lesson', // レッスン（プロンプト）投稿タイプ
       'normal',
@@ -600,7 +566,7 @@ function render_prompt_author_meta_box($post) {
   $users = get_users(array('role__in' => array('administrator', 'editor', 'author', 'contributor')));
   ?>
   <p>
-      <label for="prompt_author">監修者:</label><br>
+      <label for="prompt_author">研究員:</label><br>
       <select name="prompt_author" id="prompt_author">
           <option value="">-- 選択してください --</option>
           <?php foreach ($users as $user) : ?>
@@ -611,14 +577,14 @@ function render_prompt_author_meta_box($post) {
       </select>
   </p>
   <p>
-      <label for="prompt_author_title">監修者肩書き:</label><br>
+      <label for="prompt_author_title">研究員肩書き:</label><br>
       <input type="text" id="prompt_author_title" name="prompt_author_title" value="<?php echo esc_attr($author_title); ?>" class="widefat">
-      <span class="description">監修者の肩書きや役職など（例：AIエンジニア、プロンプトエンジニアなど）</span>
+      <span class="description">研究員の肩書きや役職など（例：AIエンジニア、プロンプトエンジニアなど）</span>
   </p>
   <p>
-      <label for="prompt_author_description">監修者プロフィール:</label><br>
+      <label for="prompt_author_description">研究員プロフィール:</label><br>
       <textarea id="prompt_author_description" name="prompt_author_description" class="widefat" rows="3"><?php echo esc_textarea($author_description); ?></textarea>
-      <span class="description">監修者の簡単なプロフィールや経歴（100文字程度）</span>
+      <span class="description">研究員の簡単なプロフィールや経歴（100文字程度）</span>
   </p>
   <?php
 }
@@ -637,25 +603,15 @@ function save_prompt_author_meta_data($post_id) {
       return;
   }
 
-  // 監修者IDの保存
+  // 研究員IDの保存
   if (isset($_POST['prompt_author'])) {
       update_post_meta($post_id, 'prompt_author', sanitize_text_field($_POST['prompt_author']));
   } else {
       delete_post_meta($post_id, 'prompt_author');
   }
-
-  // 監修者肩書きの保存
-  if (isset($_POST['prompt_author_title'])) {
-      update_post_meta($post_id, 'prompt_author_title', sanitize_text_field($_POST['prompt_author_title']));
-  }
-
-  // 監修者プロフィールの保存
-  if (isset($_POST['prompt_author_description'])) {
-      update_post_meta($post_id, 'prompt_author_description', sanitize_textarea_field($_POST['prompt_author_description']));
-  }
 }
 
-// 監修者によるプロンプト一覧を表示するショートコード
+// 研究員によるプロンプト一覧を表示するショートコード
 function prompt_author_list_shortcode($atts) {
   $atts = shortcode_atts(array(
       'author_id' => 0,
@@ -671,13 +627,13 @@ function prompt_author_list_shortcode($atts) {
       return '<p>有効なauthor_idを指定してください。</p>';
   }
 
-  // 監修者情報の取得
+  // 研究員情報の取得
   $author = get_userdata($author_id);
   if (!$author) {
-      return '<p>指定されたIDの監修者が見つかりません。</p>';
+      return '<p>指定されたIDの研究員が見つかりません。</p>';
   }
 
-  // 該当する監修者のプロンプトを取得
+  // 該当する研究員のプロンプトを取得
   $args = array(
       'post_type' => 'lesson',
       'posts_per_page' => $limit,
@@ -738,7 +694,7 @@ function prompt_author_list_shortcode($atts) {
 
       <?php wp_reset_postdata();
   else : ?>
-      <p>この監修者によるプロンプトはまだありません。</p>
+      <p>この研究員によるプロンプトはまだありません。</p>
   <?php endif;
 
   return ob_get_clean();
@@ -787,3 +743,331 @@ function add_completion_example_field() {
   }
 }
 add_action('acf/init', 'add_completion_example_field');
+
+
+// プロンプト用カスタム投稿タイプを登録
+function register_prompt_post_type() {
+  register_post_type('ai_prompt', array(
+      'labels' => array(
+          'name' => 'プロンプト',
+          'singular_name' => 'プロンプト',
+          'add_new' => '新規プロンプト追加',
+          'add_new_item' => '新規プロンプトを追加',
+          'edit_item' => 'プロンプトを編集',
+      ),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => true,
+      'menu_icon' => 'dashicons-edit',
+      'supports' => array('title', 'editor'),
+      'has_archive' => false,
+      'hierarchical' => false,
+      'show_in_rest' => true
+  ));
+}
+add_action('init', 'register_prompt_post_type');
+
+// メタボックスを追加する関数は別のフックで登録
+function register_prompt_meta_boxes() {
+  // レッスンとプロンプトを関連付けるメタボックスを追加
+  add_meta_box(
+      'lesson_prompts',
+      'レッスンに関連付けるプロンプト',
+      'render_lesson_prompts_metabox',
+      'lesson',
+      'normal',
+      'high'
+  );
+
+  // プロンプトにレッスンを関連付けるメタボックスを追加
+  add_meta_box(
+      'prompt_lesson',
+      '関連レッスン',
+      'render_prompt_lesson_metabox',
+      'ai_prompt',
+      'side',
+      'default'
+  );
+
+  // プロンプト用カスタムフィールド
+  add_meta_box(
+      'prompt_content',
+      'プロンプト内容',
+      'render_prompt_content_metabox',
+      'ai_prompt',
+      'normal',
+      'high'
+  );
+}
+add_action('add_meta_boxes', 'register_prompt_meta_boxes');
+
+// 以下、その他の関数はそのまま
+// レッスンとプロンプトの関連付けを表示するメタボックス
+function render_lesson_prompts_metabox($post) {
+  wp_nonce_field(basename(__FILE__), 'lesson_prompts_nonce');
+
+  // このレッスンに関連付けられたプロンプトを取得
+  $prompt_ids = get_post_meta($post->ID, '_related_prompts', true);
+  if (!is_array($prompt_ids)) {
+      $prompt_ids = array();
+  }
+
+  // すべてのプロンプトを取得
+  $prompts = get_posts(array(
+      'post_type' => 'ai_prompt',
+      'posts_per_page' => -1,
+      'orderby' => 'title',
+      'order' => 'ASC'
+  ));
+
+  if (empty($prompts)) {
+      echo '<p>まだプロンプトがありません。<a href="' . admin_url('post-new.php?post_type=ai_prompt') . '">こちら</a>から新しいプロンプトを追加してください。</p>';
+      return;
+  }
+
+  echo '<div class="lesson-prompts-container">';
+  echo '<p>このレッスンに表示するプロンプトを選択し、順序を設定してください：</p>';
+
+  echo '<ul id="lesson-prompts-sortable">';
+
+  // 関連付けられたプロンプトを先に表示
+  foreach ($prompt_ids as $prompt_id) {
+      $prompt = get_post($prompt_id);
+      if ($prompt && $prompt->post_type == 'ai_prompt') {
+          echo '<li data-id="' . esc_attr($prompt_id) . '">';
+          echo '<input type="checkbox" name="lesson_prompts[]" value="' . esc_attr($prompt_id) . '" checked> ';
+          echo '<span class="prompt-title">' . esc_html($prompt->post_title) . '</span>';
+          echo '<span class="dashicons dashicons-menu prompt-handle"></span>';
+          echo '<a href="' . get_edit_post_link($prompt_id) . '" target="_blank" class="edit-prompt">編集</a>';
+          echo '</li>';
+      }
+  }
+
+  // 関連付けられていないプロンプトを表示
+  foreach ($prompts as $prompt) {
+      if (!in_array($prompt->ID, $prompt_ids)) {
+          echo '<li data-id="' . esc_attr($prompt->ID) . '">';
+          echo '<input type="checkbox" name="lesson_prompts[]" value="' . esc_attr($prompt->ID) . '"> ';
+          echo '<span class="prompt-title">' . esc_html($prompt->post_title) . '</span>';
+          echo '<span class="dashicons dashicons-menu prompt-handle"></span>';
+          echo '<a href="' . get_edit_post_link($prompt->ID) . '" target="_blank" class="edit-prompt">編集</a>';
+          echo '</li>';
+      }
+  }
+
+  echo '</ul>';
+
+  echo '<p><a href="' . admin_url('post-new.php?post_type=ai_prompt') . '" target="_blank" class="button">新しいプロンプトを作成</a></p>';
+  echo '</div>';
+
+  // ソート用のスクリプトとスタイル
+  ?>
+  <style>
+      #lesson-prompts-sortable {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
+      #lesson-prompts-sortable li {
+          margin: 5px 0;
+          padding: 8px;
+          border: 1px solid #ddd;
+          background: #f9f9f9;
+          cursor: move;
+          display: flex;
+          align-items: center;
+      }
+      .prompt-title {
+          flex-grow: 1;
+          margin: 0 10px;
+      }
+      .prompt-handle {
+          color: #999;
+          margin-right: 10px;
+      }
+      .edit-prompt {
+          margin-left: 10px;
+      }
+  </style>
+  <script>
+  jQuery(document).ready(function($) {
+      $('#lesson-prompts-sortable').sortable({
+          handle: '.prompt-handle',
+          placeholder: 'ui-state-highlight',
+          helper: 'clone',
+          opacity: 0.7
+      });
+  });
+  </script>
+  <?php
+}
+
+// プロンプトとレッスンの関連付けを表示するメタボックス
+function render_prompt_lesson_metabox($post) {
+  wp_nonce_field(basename(__FILE__), 'prompt_lesson_nonce');
+
+  // このプロンプトが関連付けられているレッスンを取得
+  $lessons = get_posts(array(
+      'post_type' => 'lesson',
+      'posts_per_page' => -1,
+      'meta_query' => array(
+          array(
+              'key' => '_related_prompts',
+              'value' => $post->ID,
+              'compare' => 'LIKE'
+          )
+      )
+  ));
+
+  if (empty($lessons)) {
+      echo '<p>このプロンプトはまだどのレッスンにも関連付けられていません。</p>';
+  } else {
+      echo '<ul>';
+      foreach ($lessons as $lesson) {
+          echo '<li><a href="' . get_edit_post_link($lesson->ID) . '">' . esc_html($lesson->post_title) . '</a></li>';
+      }
+      echo '</ul>';
+  }
+}
+
+// プロンプト内容用のメタボックス
+function render_prompt_content_metabox($post) {
+  wp_nonce_field(basename(__FILE__), 'prompt_content_nonce');
+
+  $prompt_content = get_post_meta($post->ID, '_prompt_content', true);
+  ?>
+  <textarea name="prompt_content" id="prompt_content" style="width:100%; min-height:200px;"><?php echo esc_textarea($prompt_content); ?></textarea>
+  <p class="description">AIツールに入力するプロンプトの内容を入力してください。</p>
+  <?php
+}
+
+// プロンプト内容を保存
+function save_prompt_content($post_id) {
+  if (!isset($_POST['prompt_content_nonce']) ||
+      !wp_verify_nonce($_POST['prompt_content_nonce'], basename(__FILE__)) ||
+      (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) ||
+      !current_user_can('edit_post', $post_id) ||
+      get_post_type($post_id) != 'ai_prompt') {
+      return;
+  }
+
+  if (isset($_POST['prompt_content'])) {
+      update_post_meta($post_id, '_prompt_content', wp_kses_post($_POST['prompt_content']));
+  }
+}
+add_action('save_post_ai_prompt', 'save_prompt_content');
+
+// レッスンに関連付けられたプロンプトを保存
+function save_lesson_prompts($post_id) {
+  if (!isset($_POST['lesson_prompts_nonce']) ||
+      !wp_verify_nonce($_POST['lesson_prompts_nonce'], basename(__FILE__)) ||
+      (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) ||
+      !current_user_can('edit_post', $post_id) ||
+      get_post_type($post_id) != 'lesson') {
+      return;
+  }
+
+  $prompt_ids = isset($_POST['lesson_prompts']) ? $_POST['lesson_prompts'] : array();
+  update_post_meta($post_id, '_related_prompts', $prompt_ids);
+}
+add_action('save_post_lesson', 'save_lesson_prompts');
+
+
+
+// カスタム投稿タイプ 'lesson' のパーマリンク設定
+function custom_lesson_permalink_structure($post_link, $post) {
+  if (is_object($post) && $post->post_type == 'lesson') {
+      // IDベースのパーマリンクに変更
+      return home_url('/lesson/' . $post->ID . '/');
+  }
+  return $post_link;
+}
+add_filter('post_type_link', 'custom_lesson_permalink_structure', 10, 2);
+
+// リライトルールの追加
+function custom_lesson_rewrite_rules() {
+  add_rewrite_rule(
+      '^lesson/([0-9]+)/?$',
+      'index.php?post_type=lesson&p=$matches[1]',
+      'top'
+  );
+}
+add_action('init', 'custom_lesson_rewrite_rules');
+
+// カスタム投稿タイプ 'ai_prompt' のパーマリンク設定（方法2を使用している場合）
+function custom_prompt_permalink_structure($post_link, $post) {
+  if (is_object($post) && $post->post_type == 'ai_prompt') {
+      // IDベースのパーマリンクに変更
+      return home_url('/prompt/' . $post->ID . '/');
+  }
+  return $post_link;
+}
+add_filter('post_type_link', 'custom_prompt_permalink_structure', 10, 2);
+
+// リライトルールの追加
+function custom_prompt_rewrite_rules() {
+  add_rewrite_rule(
+      '^prompt/([0-9]+)/?$',
+      'index.php?post_type=ai_prompt&p=$matches[1]',
+      'top'
+  );
+}
+add_action('init', 'custom_prompt_rewrite_rules');
+
+// パーマリンク設定更新後にリライトルールをフラッシュする
+function flush_rewrite_rules_on_theme_switch() {
+  flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'flush_rewrite_rules_on_theme_switch');
+
+
+// ユーザープロフィールに研究員情報用のフィールドを追加
+function add_custom_user_profile_fields($user) {
+  ?>
+  <h3>研究員情報</h3>
+  <table class="form-table">
+      <tr>
+          <th><label for="prompt_author_title">肩書</label></th>
+          <td>
+              <input type="text" name="prompt_author_title" id="prompt_author_title"
+                     value="<?php echo esc_attr(get_user_meta($user->ID, 'prompt_author_title', true)); ?>"
+                     class="regular-text" />
+              <span class="description">研究員としての肩書を入力してください（例：AIエンジニア、プロンプトエンジニアなど）</span>
+          </td>
+      </tr>
+      <tr>
+          <th><label for="prompt_author_description">プロフィール説明</label></th>
+          <td>
+              <?php
+              $description = get_user_meta($user->ID, 'prompt_author_description', true);
+              wp_editor($description, 'prompt_author_description', array(
+                  'media_buttons' => false,
+                  'textarea_rows' => 5,
+                  'teeny' => true
+              ));
+              ?>
+              <span class="description">研究員としての経歴や専門分野などを入力してください</span>
+          </td>
+      </tr>
+  </table>
+  <?php
+}
+add_action('show_user_profile', 'add_custom_user_profile_fields');
+add_action('edit_user_profile', 'add_custom_user_profile_fields');
+
+// ユーザープロフィールの追加フィールドを保存
+function save_custom_user_profile_fields($user_id) {
+  if (!current_user_can('edit_user', $user_id)) {
+      return false;
+  }
+
+  if (isset($_POST['prompt_author_title'])) {
+      update_user_meta($user_id, 'prompt_author_title', sanitize_text_field($_POST['prompt_author_title']));
+  }
+
+  if (isset($_POST['prompt_author_description'])) {
+      update_user_meta($user_id, 'prompt_author_description', wp_kses_post($_POST['prompt_author_description']));
+  }
+}
+add_action('personal_options_update', 'save_custom_user_profile_fields');
+add_action('edit_user_profile_update', 'save_custom_user_profile_fields');

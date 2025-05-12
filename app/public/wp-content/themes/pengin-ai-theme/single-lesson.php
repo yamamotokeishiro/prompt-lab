@@ -121,220 +121,363 @@ $professions = get_the_terms(get_the_ID(), 'profession');
                 <?php endif; ?>
             </header>
 
-            <!-- プロンプト本文 -->
-            <div class="prompt-content-container">
+            <!-- メインコンテンツ部分 -->
+<div class="prompt-content-container">
+    <?php
+    // レッスンに関連付けられたプロンプトを取得
+    $prompt_ids = get_post_meta(get_the_ID(), '_related_prompts', true);
+    $has_prompts = is_array($prompt_ids) && !empty($prompt_ids);
+
+    // プロンプトデータを取得
+    $display_prompts = array();
+    if ($has_prompts) {
+        foreach ($prompt_ids as $index => $prompt_id) {
+            $prompt_post = get_post($prompt_id);
+
+            // 存在するプロンプトのみ処理
+            if ($prompt_post && $prompt_post->post_type == 'ai_prompt' && $prompt_post->post_status == 'publish') {
+                $display_prompts[] = array(
+                    'id' => $prompt_id,
+                    'title' => $prompt_post->post_title,
+                    'content' => get_post_meta($prompt_id, '_prompt_content', true),
+                    'description' => $prompt_post->post_content,
+                    'visible' => true
+                );
+            }
+        }
+
+        // 表示用プロンプトがあるかチェック
+        $has_prompts = !empty($display_prompts);
+    }
+
+    // プロンプトがある場合の表示
+    if ($has_prompts):
+
+        // 本文の説明を表示
+        if (get_the_content()):
+    ?>
+        <!-- レッスン本文 -->
+        <div class="prompt-explanation">
+            <h2 class="section-title">レッスンの説明</h2>
+            <?php the_content(); ?>
+        </div>
+        <?php
+          // 研究員情報を表示
+          $prompt_author_id = get_field('prompt_author');
+          if ($prompt_author_id) :
+              // 数値以外の値や配列の場合の対応
+              if (is_array($prompt_author_id) && isset($prompt_author_id['ID'])) {
+                  $prompt_author_id = $prompt_author_id['ID'];
+              } elseif (is_array($prompt_author_id) && isset($prompt_author_id[0])) {
+                  $prompt_author_id = $prompt_author_id[0];
+              } elseif (is_object($prompt_author_id) && isset($prompt_author_id->ID)) {
+                  $prompt_author_id = $prompt_author_id->ID;
+              }
+
+              // ユーザーデータを取得
+              $author_data = get_userdata($prompt_author_id);
+
+              if ($author_data) :
+                  // ユーザープロフィールから肩書とプロフィール説明を取得
+                  $author_title = get_user_meta($prompt_author_id, 'prompt_author_title', true);
+                  $author_description = get_user_meta($prompt_author_id, 'prompt_author_description', true);
+          ?>
+          <div class="prompt-author-container">
+              <h2 class="prompt-author-heading">研究員</h2>
+              <div class="prompt-author-content">
+                  <div class="prompt-author-image">
+                      <?php echo get_avatar($prompt_author_id, 64, '', $author_data->display_name, array('class' => 'prompt-author-avatar')); ?>
+                  </div>
+                  <div class="prompt-author-details">
+                      <?php if (!empty($author_title)) : ?>
+                      <p class="prompt-author-position"><?php echo esc_html($author_title); ?></p>
+                      <?php endif; ?>
+
+                      <p class="prompt-author-name"><?php echo esc_html($author_data->display_name); ?></p>
+
+                      <?php if (!empty($author_description)) : ?>
+                      <div class="prompt-author-bio"><?php echo wp_kses_post($author_description); ?></div>
+                      <?php endif; ?>
+                  </div>
+              </div>
+          </div>
+          <?php
+              endif;
+          endif;
+          ?>
+
+
+        <!-- プロンプト選択タブ -->
+        <div class="prompt-tabs">
+            <h2 class="section-title">プロンプト一覧</h2>
+            <ul class="prompt-tabs-nav">
                 <?php
-                // 本文の取得
-                $content = get_the_content();
-
-                // プロンプトセクションの特定のパターン（例：```prompt や [PROMPT] など）を探す
-                $pattern = '/(\[PROMPT\]|\`\`\`prompt)(.*?)(\[\/PROMPT\]|\`\`\`)/s';
-                $has_prompt_section = preg_match($pattern, $content, $matches);
-
-                if ($has_prompt_section) {
-                    // プロンプト部分とそれ以外を分離
-                    $prompt_text = trim($matches[2]);
-                    $explanation_text = str_replace($matches[0], '', $content);
+                foreach ($display_prompts as $index => $prompt) :
+                    $tab_id = 'prompt-tab-' . $prompt['id'];
+                    $active_class = ($index === 0) ? 'active' : '';
+                    $number = $index + 1; // 番号を追加
                 ?>
-                    <!-- 説明エリア -->
-                    <div class="prompt-explanation">
-                        <h2 class="section-title">説明</h2>
-                        <?php echo apply_filters('the_content', $explanation_text); ?>
-                    </div>
+                    <li class="prompt-tab-item <?php echo $active_class; ?>" data-tab="<?php echo $tab_id; ?>">
+                        <span class="prompt-number"><?php echo $number; ?>.</span> <?php echo esc_html($prompt['title']); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
-                    <?php
-                    // 監修者情報を取得
-                    $prompt_author = get_field('prompt_author');
-                    if (!$prompt_author && function_exists('get_post_meta')) {
-                        $author_id = get_post_meta(get_the_ID(), 'prompt_author', true);
-                        if ($author_id) {
-                            $user = get_userdata($author_id);
-                            if ($user) {
-                                $prompt_author = array(
-                                    'ID' => $user->ID,
-                                    'display_name' => $user->display_name,
-                                    'user_email' => $user->user_email,
-                                );
-                            }
-                        }
+    <?php endif; ?>
+
+        <!-- プロンプトコンテンツエリア -->
+        <?php
+        foreach ($display_prompts as $index => $prompt) :
+            $tab_id = 'prompt-tab-' . $prompt['id'];
+            $active_class = ($index === 0) ? 'active' : '';
+        ?>
+        <div id="<?php echo $tab_id; ?>" class="prompt-content-tab <?php echo $active_class; ?>">
+            <?php if (count($display_prompts) > 1) : ?>
+                <h3 class="prompt-subtitle">
+                    <span class="prompt-number"><?php echo $index + 1; ?>.</span> <?php echo esc_html($prompt['title']); ?>
+                </h3>
+            <?php endif; ?>
+
+
+            <?php if (!empty($prompt['description'])) : ?>
+            <!-- プロンプトの説明 -->
+            <div class="prompt-description">
+                <?php echo apply_filters('the_content', $prompt['description']); ?>
+            </div>
+            <?php endif; ?>
+
+            <!-- プロンプトコード部分 -->
+            <div class="prompt-code-area">
+                <h4 class="prompt-code-header">
+                    プロンプト
+                    <button class="copy-prompt-btn" data-prompt="<?php echo esc_attr($prompt['content']); ?>">
+                        <i class="far fa-copy"></i> コピーする
+                    </button>
+                </h4>
+                <div class="prompt-code">
+                    <pre class="prompt-text-content"><?php echo esc_html($prompt['content']); ?></pre>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+
+    <?php
+    else:
+        // 従来の方法でプロンプトを表示（後方互換性のため）
+
+        // 本文の取得
+        $content = get_the_content();
+
+        // プロンプトセクションの特定のパターン（例：```prompt や [PROMPT] など）を探す
+        $pattern = '/(\[PROMPT\]|\`\`\`prompt)(.*?)(\[\/PROMPT\]|\`\`\`)/s';
+        $has_prompt_section = preg_match($pattern, $content, $matches);
+
+        if ($has_prompt_section) {
+            // プロンプト部分とそれ以外を分離
+            $prompt_text = trim($matches[2]);
+            $explanation_text = str_replace($matches[0], '', $content);
+        ?>
+            <!-- 説明エリア -->
+            <div class="prompt-explanation">
+                <h2 class="section-title">説明</h2>
+                <?php echo apply_filters('the_content', $explanation_text); ?>
+            </div>
+
+            <?php
+            // 監修者情報を取得
+            $prompt_author = get_field('prompt_author');
+            if (!$prompt_author && function_exists('get_post_meta')) {
+                $author_id = get_post_meta(get_the_ID(), 'prompt_author', true);
+                if ($author_id) {
+                    $user = get_userdata($author_id);
+                    if ($user) {
+                        $prompt_author = array(
+                            'ID' => $user->ID,
+                            'display_name' => $user->display_name,
+                            'user_email' => $user->user_email,
+                        );
                     }
+                }
+            }
 
-                    // 監修者が設定されている場合のみ表示
-                    if ($prompt_author) :
-                        // 追加情報の取得
-                        $author_title = get_field('prompt_author_title');
-                        if (!$author_title) {
-                            $author_title = get_post_meta(get_the_ID(), 'prompt_author_title', true);
-                        }
-
-                        $author_description = get_field('prompt_author_description');
-                        if (!$author_description) {
-                            $author_description = get_post_meta(get_the_ID(), 'prompt_author_description', true);
-                        }
-                    ?>
-                    <div class="prompt-author-container">
-                        <h2 class="prompt-author-heading">プロンプトの監修者</h2>
-                        <div class="prompt-author-content">
-                            <div class="prompt-author-image">
-                                <?php echo get_avatar($prompt_author['ID'], 64, '', $prompt_author['display_name'], array('class' => 'prompt-author-avatar')); ?>
-                            </div>
-                            <div class="prompt-author-details">
-                                <?php if (!empty($author_title)) : ?>
-                                <p class="prompt-author-position"><?php echo esc_html($author_title); ?></p>
-                                <?php endif; ?>
-
-                                <p class="prompt-author-name"><?php echo esc_html($prompt_author['display_name']); ?></p>
-
-                                <?php if (!empty($author_description)) : ?>
-                                <div class="prompt-author-bio"><?php echo wp_kses_post($author_description); ?></div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-
-
-                    <!-- プロンプトエリア -->
-                    <div class="prompt-code-area">
-                        <h2 class="section-title">プロンプト
-                            <button class="copy-prompt-btn" data-prompt="<?php echo esc_attr($prompt_text); ?>">
-                                <i class="far fa-copy"></i> コピーする
-                            </button>
-                        </h2>
-                        <div class="prompt-code">
-                            <pre id="prompt-text-content"><?php echo esc_html($prompt_text); ?></pre>
-                        </div>
-                        <div class="prompt-tips">
-                            <p><i class="fas fa-lightbulb"></i> ヒント: 「コピーする」ボタンをクリックすると、プロンプト全体をクリップボードにコピーできます。</p>
-                        </div>
-                    </div>
-                <?php
-                } else {
-                    // プロンプトセクションが見つからない場合は通常の本文を表示
-                ?>
-                    <div class="prompt-explanation">
-                        <h2 class="section-title">説明</h2>
-                        <?php
-                        // 本文を解析して自動的にプロンプト部分を見つける試み
-                        $paragraphs = explode("\n\n", $content);
-                        $found_prompt = false;
-
-                        if (count($paragraphs) > 1) {
-                            // 最後の段落または長めの段落をプロンプトとして扱う
-                            $last_paragraph = trim(end($paragraphs));
-                            $second_last = count($paragraphs) > 1 ? trim($paragraphs[count($paragraphs) - 2]) : '';
-
-                            // 条件：200文字以上の段落、または最後の段落（説明が短い場合）
-                            if (mb_strlen($last_paragraph) > 200 ||
-                                (mb_strlen($last_paragraph) > 50 && mb_strlen($second_last) < 100)) {
-                                $prompt_text = $last_paragraph;
-                                array_pop($paragraphs);
-                                $explanation_text = implode("\n\n", $paragraphs);
-                                $found_prompt = true;
-
-                                // 説明部分の表示
-                                echo apply_filters('the_content', $explanation_text);
-                            }
-                        }
-
-                        if (!$found_prompt) {
-                            // プロンプト部分が見つからない場合は全文を表示
-                            the_content();
-                        }
-                        ?>
-                    </div>
-
-                    <?php
-                    // 監修者情報を取得
-                    $prompt_author = get_field('prompt_author');
-                    if (!$prompt_author && function_exists('get_post_meta')) {
-                        $author_id = get_post_meta(get_the_ID(), 'prompt_author', true);
-                        if ($author_id) {
-                            $user = get_userdata($author_id);
-                            if ($user) {
-                                $prompt_author = array(
-                                    'ID' => $user->ID,
-                                    'display_name' => $user->display_name,
-                                    'user_email' => $user->user_email,
-                                );
-                            }
-                        }
-                    }
-
-                    // 監修者が設定されている場合のみ表示
-                    if ($prompt_author) :
-                        // 追加情報の取得
-                        $author_title = get_field('prompt_author_title');
-                        if (!$author_title) {
-                            $author_title = get_post_meta(get_the_ID(), 'prompt_author_title', true);
-                        }
-
-                        $author_description = get_field('prompt_author_description');
-                        if (!$author_description) {
-                            $author_description = get_post_meta(get_the_ID(), 'prompt_author_description', true);
-                        }
-
-                        // 著者のURLを取得
-                        $author_url = get_the_author_meta('user_url', $prompt_author['ID']);
-                    ?>
-                    <div class="prompt-author-section">
-                        <h2 class="section-title">監修者情報</h2>
-                        <div class="prompt-author-card">
-                            <!-- 監修者のアバター画像 -->
-                            <div class="prompt-author-avatar">
-                                <?php echo get_avatar($prompt_author['ID'], 96, '', $prompt_author['display_name'], array('class' => 'prompt-author-img')); ?>
-                            </div>
-
-                            <!-- 監修者情報 -->
-                            <div class="prompt-author-info">
-                                <h3 class="prompt-author-name"><?php echo esc_html($prompt_author['display_name']); ?></h3>
-
-                                <?php if (!empty($author_title)) : ?>
-                                <p class="prompt-author-title"><?php echo esc_html($author_title); ?></p>
-                                <?php endif; ?>
-
-                                <?php if (!empty($author_description)) : ?>
-                                <div class="prompt-author-bio"><?php echo wp_kses_post($author_description); ?></div>
-                                <?php endif; ?>
-
-                                <?php if (!empty($author_url)) : ?>
-                                <div class="prompt-author-links">
-                                    <a href="<?php echo esc_url($author_url); ?>" target="_blank" rel="nofollow">
-                                        <i class="fas fa-link"></i> プロフィールサイト
-                                    </a>
-                                </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-
-                    <?php if ($found_prompt) : ?>
-                    <!-- 自動検出したプロンプト部分の表示 -->
-                    <div class="prompt-code-area">
-                        <h2 class="section-title">プロンプト
-                            <button class="copy-prompt-btn" data-prompt="<?php echo esc_attr($prompt_text); ?>">
-                                <i class="far fa-copy"></i> コピーする
-                            </button>
-                        </h2>
-                        <div class="prompt-code">
-                            <pre id="prompt-text-content"><?php echo esc_html($prompt_text); ?></pre>
-                        </div>
-                        <div class="prompt-tips">
-                            <p><i class="fas fa-lightbulb"></i> ヒント: 「コピーする」ボタンをクリックすると、プロンプト全体をクリップボードにコピーできます。</p>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                <?php
+            // 監修者が設定されている場合のみ表示
+            if ($prompt_author) :
+                // 追加情報の取得
+                $author_title = get_field('prompt_author_title');
+                if (!$author_title) {
+                    $author_title = get_post_meta(get_the_ID(), 'prompt_author_title', true);
                 }
 
-                // ページネーション（プロンプトが複数ページに分かれている場合）
-                wp_link_pages(array(
-                    'before' => '<div class="page-links">' . __('ページ:', 'pengin-ai'),
-                    'after'  => '</div>',
-                ));
+                $author_description = get_field('prompt_author_description');
+                if (!$author_description) {
+                    $author_description = get_post_meta(get_the_ID(), 'prompt_author_description', true);
+                }
+            ?>
+            <div class="prompt-author-container">
+                <h2 class="prompt-author-heading">プロンプトの監修者</h2>
+                <div class="prompt-author-content">
+                    <div class="prompt-author-image">
+                        <?php echo get_avatar($prompt_author['ID'], 64, '', $prompt_author['display_name'], array('class' => 'prompt-author-avatar')); ?>
+                    </div>
+                    <div class="prompt-author-details">
+                        <?php if (!empty($author_title)) : ?>
+                        <p class="prompt-author-position"><?php echo esc_html($author_title); ?></p>
+                        <?php endif; ?>
+
+                        <p class="prompt-author-name"><?php echo esc_html($prompt_author['display_name']); ?></p>
+
+                        <?php if (!empty($author_description)) : ?>
+                        <div class="prompt-author-bio"><?php echo wp_kses_post($author_description); ?></div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <!-- プロンプトエリア -->
+            <div class="prompt-code-area">
+                <h2 class="section-title">プロンプト
+                    <button class="copy-prompt-btn" data-prompt="<?php echo esc_attr($prompt_text); ?>">
+                        <i class="far fa-copy"></i> コピーする
+                    </button>
+                </h2>
+                <div class="prompt-code">
+                    <pre class="prompt-text-content"><?php echo esc_html($prompt_text); ?></pre>
+                </div>
+                <div class="prompt-tips">
+                    <p><i class="fas fa-lightbulb"></i> ヒント: 「コピーする」ボタンをクリックすると、プロンプト全体をクリップボードにコピーできます。</p>
+                </div>
+            </div>
+        <?php
+        } else {
+            // プロンプトセクションが見つからない場合は通常の本文を表示
+        ?>
+            <div class="prompt-explanation">
+                <h2 class="section-title">説明</h2>
+                <?php
+                // 本文を解析して自動的にプロンプト部分を見つける試み
+                $paragraphs = explode("\n\n", $content);
+                $found_prompt = false;
+
+                if (count($paragraphs) > 1) {
+                    // 最後の段落または長めの段落をプロンプトとして扱う
+                    $last_paragraph = trim(end($paragraphs));
+                    $second_last = count($paragraphs) > 1 ? trim($paragraphs[count($paragraphs) - 2]) : '';
+
+                    // 条件：200文字以上の段落、または最後の段落（説明が短い場合）
+                    if (mb_strlen($last_paragraph) > 200 ||
+                        (mb_strlen($last_paragraph) > 50 && mb_strlen($second_last) < 100)) {
+                        $prompt_text = $last_paragraph;
+                        array_pop($paragraphs);
+                        $explanation_text = implode("\n\n", $paragraphs);
+                        $found_prompt = true;
+
+                        // 説明部分の表示
+                        echo apply_filters('the_content', $explanation_text);
+                    }
+                }
+
+                if (!$found_prompt) {
+                    // プロンプト部分が見つからない場合は全文を表示
+                    the_content();
+                }
                 ?>
             </div>
+
+            <?php
+            // 監修者情報を取得
+            $prompt_author = get_field('prompt_author');
+            if (!$prompt_author && function_exists('get_post_meta')) {
+                $author_id = get_post_meta(get_the_ID(), 'prompt_author', true);
+                if ($author_id) {
+                    $user = get_userdata($author_id);
+                    if ($user) {
+                        $prompt_author = array(
+                            'ID' => $user->ID,
+                            'display_name' => $user->display_name,
+                            'user_email' => $user->user_email,
+                        );
+                    }
+                }
+            }
+
+            // 監修者が設定されている場合のみ表示
+            if ($prompt_author) :
+                // 追加情報の取得
+                $author_title = get_field('prompt_author_title');
+                if (!$author_title) {
+                    $author_title = get_post_meta(get_the_ID(), 'prompt_author_title', true);
+                }
+
+                $author_description = get_field('prompt_author_description');
+                if (!$author_description) {
+                    $author_description = get_post_meta(get_the_ID(), 'prompt_author_description', true);
+                }
+
+                // 著者のURLを取得
+                $author_url = get_the_author_meta('user_url', $prompt_author['ID']);
+            ?>
+            <div class="prompt-author-section">
+                <h2 class="section-title">監修者情報</h2>
+                <div class="prompt-author-card">
+                    <!-- 監修者のアバター画像 -->
+                    <div class="prompt-author-avatar">
+                        <?php echo get_avatar($prompt_author['ID'], 96, '', $prompt_author['display_name'], array('class' => 'prompt-author-img')); ?>
+                    </div>
+
+                    <!-- 監修者情報 -->
+                    <div class="prompt-author-info">
+                        <h3 class="prompt-author-name"><?php echo esc_html($prompt_author['display_name']); ?></h3>
+
+                        <?php if (!empty($author_title)) : ?>
+                        <p class="prompt-author-title"><?php echo esc_html($author_title); ?></p>
+                        <?php endif; ?>
+
+                        <?php if (!empty($author_description)) : ?>
+                        <div class="prompt-author-bio"><?php echo wp_kses_post($author_description); ?></div>
+                        <?php endif; ?>
+
+                        <?php if (!empty($author_url)) : ?>
+                        <div class="prompt-author-links">
+                            <a href="<?php echo esc_url($author_url); ?>" target="_blank" rel="nofollow">
+                                <i class="fas fa-link"></i> プロフィールサイト
+                            </a>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <?php if ($found_prompt) : ?>
+            <!-- 自動検出したプロンプト部分の表示 -->
+            <div class="prompt-code-area">
+                <h2 class="section-title">プロンプト
+                    <button class="copy-prompt-btn" data-prompt="<?php echo esc_attr($prompt_text); ?>">
+                        <i class="far fa-copy"></i> コピーする
+                    </button>
+                </h2>
+                <div class="prompt-code">
+                    <pre class="prompt-text-content"><?php echo esc_html($prompt_text); ?></pre>
+                </div>
+                <div class="prompt-tips">
+                    <p><i class="fas fa-lightbulb"></i> ヒント: 「コピーする」ボタンをクリックすると、プロンプト全体をクリップボードにコピーできます。</p>
+                </div>
+            </div>
+            <?php endif; ?>
+        <?php
+        }
+    endif;
+
+    // ページネーション（プロンプトが複数ページに分かれている場合）
+    wp_link_pages(array(
+        'before' => '<div class="page-links">' . __('ページ:', 'pengin-ai'),
+        'after'  => '</div>',
+    ));
+    ?>
+</div>
+
 
             <!-- コピー成功メッセージ -->
             <div id="copy-success-message" class="copy-success-message">

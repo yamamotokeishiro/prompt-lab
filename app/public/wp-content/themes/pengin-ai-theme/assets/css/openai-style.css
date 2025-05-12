@@ -629,3 +629,148 @@ body {
     font-size: 1rem;
   }
 }
+
+/* プロンプト番号のスタイル */
+.prompt-number {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 8px;
+  color: #4a6cad;
+}
+
+/* プロンプトタブのスペーシング改善 */
+.prompt-tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.prompt-tab-item {
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  margin-right: 0.8rem;
+  margin-bottom: -2px;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* コピーボタンのスペーシング改善 */
+.prompt-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* プロンプト内容エリアの余白改善 */
+.prompt-code {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.prompt-text-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 全体的な余白調整 */
+.prompt-single-page {
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.prompt-content-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin: 2rem 0 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #f0f0f0;
+  color: #333;
+}
+
+/* コピーボタンのスタイル改善 */
+.copy-prompt-btn {
+  background-color: #4a6cad;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.copy-prompt-btn:hover {
+  background-color: #3a5a96;
+}
+
+.copy-prompt-btn i {
+  margin-right: 6px;
+}
+
+/* プロンプト説明エリアの改善 */
+.prompt-description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* 監修者情報のスタイル改善 */
+.prompt-author-container {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border: 1px solid #eee;
+}
+
+/* スマホ表示の改善 */
+@media (max-width: 768px) {
+  .prompt-tab-item {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .prompt-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .prompt-code-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .copy-prompt-btn {
+    margin-top: 0.8rem;
+    width: 100%;
+    justify-content: center;
+  }
+}

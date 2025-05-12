@@ -386,3 +386,132 @@ Stack trace:
 #2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
 #3 {main}
   thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 18:14:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/admin-ajax.php(22): require_once('/Users/keishiro...')
+#7 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:14:13 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 367
+[12-May-2025 18:14:13 UTC] PHP Warning:  Trying to access array offset on value of type bool in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-recovery-mode-email-service.php on line 368
+[12-May-2025 18:16:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/admin-ajax.php(22): require_once('/Users/keishiro...')
+#7 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:16:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/admin.php(35): require_once('/Users/keishiro...')
+#7 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/post.php(12): require_once('/Users/keishiro...')
+#8 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:16:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/admin-ajax.php(22): require_once('/Users/keishiro...')
+#7 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:16:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(13): require_once('/Users/keishiro...')
+#7 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#8 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:17:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/admin.php(35): require_once('/Users/keishiro...')
+#7 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-admin/post.php(12): require_once('/Users/keishiro...')
+#8 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:17:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php:813
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(324): register_prompt_post_type('')
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-settings.php(727): do_action('init')
+#4 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-config.php(103): require_once('/Users/keishiro...')
+#5 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-load.php(50): require_once('/Users/keishiro...')
+#6 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(13): require_once('/Users/keishiro...')
+#7 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#8 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/functions.php on line 813
+[12-May-2025 18:36:44 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 18:36:51 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 18:36:53 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 18:36:54 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 18:36:56 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
+[12-May-2025 18:45:19 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/single-lesson.php on line 574
+[12-May-2025 18:45:21 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/single-lesson.php on line 574
+[12-May-2025 18:46:36 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/single-lesson.php on line 573
+[12-May-2025 18:46:49 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/single-lesson.php on line 573
+[12-May-2025 18:48:15 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Error could not be converted to string in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php:267
+Stack trace:
+#0 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-includes/template-loader.php(106): include()
+#1 /Users/keishiro/Local Sites/prompt-lab/app/public/wp-blog-header.php(19): require_once('/Users/keishiro...')
+#2 /Users/keishiro/Local Sites/prompt-lab/app/public/index.php(17): require('/Users/keishiro...')
+#3 {main}
+  thrown in /Users/keishiro/Local Sites/prompt-lab/app/public/wp-content/themes/pengin-ai-theme/front-page.php on line 267
