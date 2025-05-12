@@ -973,6 +973,26 @@ function save_lesson_prompts($post_id) {
 add_action('save_post_lesson', 'save_lesson_prompts');
 
 
+// カスタム投稿タイプ 'course' のパーマリンク設定
+function custom_course_permalink_structure($post_link, $post) {
+  if (is_object($post) && $post->post_type == 'course') {
+      // IDベースのパーマリンクに変更
+      return home_url('/course/' . $post->ID . '/');
+  }
+  return $post_link;
+}
+add_filter('post_type_link', 'custom_course_permalink_structure', 10, 2);
+
+// リライトルールの追加
+function custom_course_rewrite_rules() {
+  add_rewrite_rule(
+      '^course/([0-9]+)/?$',
+      'index.php?post_type=course&p=$matches[1]',
+      'top'
+  );
+}
+add_action('init', 'custom_course_rewrite_rules');
+
 
 // カスタム投稿タイプ 'lesson' のパーマリンク設定
 function custom_lesson_permalink_structure($post_link, $post) {
@@ -1071,3 +1091,62 @@ function save_custom_user_profile_fields($user_id) {
 }
 add_action('personal_options_update', 'save_custom_user_profile_fields');
 add_action('edit_user_profile_update', 'save_custom_user_profile_fields');
+
+
+/**
+ * WordPressの検索SQL自体を拡張して部分一致検索に改良
+ */
+function custom_search_where($where) {
+  global $wpdb;
+
+  // 検索クエリの場合のみ処理
+  if (is_search()) {
+      $search_term = get_search_query();
+
+      // 検索クエリが10文字以上の場合、追加処理を行う
+      if (mb_strlen($search_term) >= 10) {
+          // 元のWHERE句を保存
+          $original_where = $where;
+
+          // 特定の単語を抽出するパターン
+          $important_words = array(
+              'プロンプト', '資料', '制作', '営業', 'AI', '作成', '企画', '提案',
+              'チャット', '分析', 'レポート', '戦略', 'マーケティング', '計画'
+          );
+
+          $additional_search = array();
+          foreach ($important_words as $word) {
+              if (mb_strpos($search_term, $word) !== false) {
+                  $additional_search[] = "({$wpdb->posts}.post_title LIKE '%{$word}%' OR {$wpdb->posts}.post_content LIKE '%{$word}%')";
+              }
+          }
+
+          // 追加の検索条件がある場合
+          if (!empty($additional_search)) {
+              // 元のWHERE句から「AND ((」の位置を特定
+              $pos = strpos($where, 'AND ((');
+              if ($pos !== false) {
+                  // 元の検索条件の前に新しい検索条件を追加
+                  $where = substr_replace(
+                      $where,
+                      'AND ((' . implode(' OR ', $additional_search) . ') OR ',
+                      $pos,
+                      5 // 「AND (」の長さ
+                  );
+                  // 閉じカッコを追加
+                  $where = str_replace('))))', ')))))', $where);
+              }
+          }
+
+          // デバッグ用
+          if (defined('WP_DEBUG') && WP_DEBUG) {
+              error_log('検索クエリ: ' . $search_term);
+              error_log('元のWHERE句: ' . $original_where);
+              error_log('新しいWHERE句: ' . $where);
+          }
+      }
+  }
+
+  return $where;
+}
+add_filter('posts_where', 'custom_search_where');

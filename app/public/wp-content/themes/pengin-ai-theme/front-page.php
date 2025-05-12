@@ -79,7 +79,7 @@ get_header();
                 <h1>さあ、仕事を楽しもう</h1>
                 <div class="search-container">
                     <form role="search" method="get" action="<?php echo home_url('/'); ?>" class="search-form">
-                        <input type="text" name="s" placeholder="検索してみましょう" class="search-input">
+                        <input type="text" name="s" placeholder="検索してみましょう         例:「営業資料の作成方法」" class="search-input">
                         <input type="hidden" name="post_type" value="lesson">
                         <div class="search-buttons">
                             <button type="submit" class="search-button">
@@ -97,7 +97,6 @@ get_header();
                         </div>
                     </form>
                 </div>
-                <!-- プラスとマイクのボタンを削除 -->
             </div>
         </div>
 
